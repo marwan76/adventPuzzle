@@ -8,23 +8,20 @@ readList = [int(x) for x in open ('./intInput.txt').read().split(',')]
 
 for noun in range(100):
     for verb in range(100):
-        pos =[x for x in readList]
-        
-        pos[1]=noun
-        pos[2]=verb
-
-        intRead=0
+        pos = [x for x in readList]
+        pos[1] = noun
+        pos[2] = verb
+        intRead = 0
         while True:
-            operationCode=pos[intRead]
+            operationCode = pos[intRead]
             i1, i2, i3 = pos[intRead+1], pos[intRead+2],pos[intRead+3]
-            if operationCode ==1:
+            if operationCode == 1:
                 pos[i3] = pos[i1]+pos[i2]
-            elif operationCode==2:
+            elif operationCode == 2:
                 pos[i3] = pos[i1]*pos[i2]
             else:
                 assert operationCode == 99
                 break
-            intRead +=4
-        if pos[0]==19690720:
-            print(noun,verb)
-print(pos)
+            intRead += 4
+        if pos[0] == 19690720:
+            print(noun, verb)
