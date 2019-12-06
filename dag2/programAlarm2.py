@@ -3,7 +3,7 @@ pos = position
 pos[1]=noun
 pos[2]=verb
 """
-readList = [int(x) for x in open ('./dag2/intInput.txt').read().split(',')]
+readList = [int(x) for x in open ('./intInput.txt').read().split(',')]
 #which pair of inputs results in optOutput
 
 for noun in range(100):
