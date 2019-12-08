@@ -11,7 +11,8 @@ DY ={'L': 0, 'R': 0, 'U': 1, 'D': -1}
 def distancesum(A):
     x=0
     y=0
-    ans = set()
+    length = 0
+    ans = {}
 
     for cmd in A:
         d = cmd[0]
@@ -20,11 +21,15 @@ def distancesum(A):
         for i in range(n):
             x += DX[d]
             y += DY[d]
-            ans.add((x,y))
+            length += 1
+            if (x,y) not in ans:
+                ans[(x,y)]=length
     return ans
 
 PA = distancesum(A)
 PB = distancesum(B)
-both = PA&PB
-ans = min(abs(x) + abs(y) for (x,y) in both)
-print(ans)
+both = set(PA.keys())&set(PB.keys())
+part1 = min([abs(x)+abs(y) for (x,y) in both])
+part2 = min([PA[p]+PB[p] for p in both])
+
+print(part2)
